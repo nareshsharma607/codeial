@@ -1,3 +1,6 @@
 module.exports.users=function(req,res){
-    res.end('<h1>users profile</h1>')
+    res.render('users',{
+        title:'users/profile'
+    })
+    
 }
