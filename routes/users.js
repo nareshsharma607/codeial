@@ -2,8 +2,12 @@ const express=require('express');
 
 const router=express.Router();
 
-const usersControllere= require('../controllers/users_controllere');
+const usersController= require('../controllers/users_controllere');
 
-router.get('/profile',usersControllere.users);
+router.get('/',usersController.users);
+router.get('/sign_up',usersController.sign_up)
+router.get('/sign_in',usersController.sign_in)
+router.post('/create',usersController.create)
+router.post('/session',usersController.createSession)
 
 module.exports=router;

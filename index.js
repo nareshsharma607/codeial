@@ -4,9 +4,14 @@ const path=require('path');
 const app=express();
 const expressLayouts=require('express-ejs-layouts');
 const port=8000;
+const cookieParser=require('cookie-parser');
+const db=require('./config/mongoose');
+ const User=require('./models/users')
 
 app.use(expressLayouts);
 
+app.use(cookieParser());
+app.use(express.urlencoded());
 app.use('/',require('./routes/index'))
 app.use(express.static('./assets'))
 
