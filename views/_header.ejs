@@ -1,9 +1,22 @@
-<html>
-    <head>
+ <link rel="stylesheet" href="../assets/css/footer.css"> 
 
-    </head>
-    <body>
+<header>
+        <div id="main-header">
+            <div><h2>codeial</h2></div>
+            <div>
+            <%if(locals.user){%>
+              <div id="head">
+              <div id="name"> <h2> <%=user.name%></h2></div>
+            <div id="sign-out"><h2><a href="/users/sign_out">Sign out</a></h2></div>
+               </div>
+            <%}else{ %>
+            <div id="head">   
+            <div id="sign-in"><h2><a href="/users/sign_in">Sign in</a></h2></div>
+            <div id="sign-up"><h2><a href="/users/sign_up">Sign up</a></h2></div>
+            </div>
+            <%}%>
+        </div>
+        </div>
        
-        this is header
-    </body>
-</html>
+        
+    </header>
