@@ -1,12 +1,13 @@
 const mongoose=require('mongoose');
 
 const postSchema=new mongoose.Schema({
-    content:{String,
+    content:{
+        type:String,
     required:true
 },
 user:{
-    type:mongoose.type.Schema,
-    rer:'User'
+    type:mongoose.Schema.Types.ObjectId,
+    ref:'User'
 
 }
 },

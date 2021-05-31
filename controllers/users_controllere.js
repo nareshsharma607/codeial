@@ -1,11 +1,19 @@
 const User=require('../models/users')
+const Post=require('../models/posts')
 
 
 module.exports.users=function(req,res){
     console.log(req.cookies)
-    res.render('home',{
-        title:'users'
+    
+    Post.find({}).populate('user').exec(function(err,posts){
+        res.render('home',{
+            title:'codeial |Home',
+            posts:posts,
+        
+        } )  
+          
     })
+    ;
     
 }
 module.exports.profile=function(req,res){
