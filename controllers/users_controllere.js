@@ -17,10 +17,25 @@ module.exports.users=function(req,res){
     
 }
 module.exports.profile=function(req,res){
-    res.render('profile',{
-        title:"profile"
-    });
+    User.findById(req.params.id,function(err,user){
+        res.render('profile',{
+            title:"profile",
+            user_profile:user
+        });
+    })
+    
+   
 }
+module.exports.update=function(req,res){
+    if(req.user.id==req.params.id){
+    User.findByIdAndUpdate(req.params.id,req.body,function(err,user){
+       return res.redirect('back')
+    })
+}else{
+    return res.status(401).send('unautherise')
+}
+} 
+
 module.exports.sign_up=function(req,res){
     if(req.isAuthenticated()){
         return res.redirect('/users/profile')

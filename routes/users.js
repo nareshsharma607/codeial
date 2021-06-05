@@ -8,8 +8,9 @@ const usersController= require('../controllers/users_controllere');
 router.get('/',usersController.users);
 router.get('/sign_up',usersController.sign_up)
 router.get('/sign_in',usersController.sign_in)
-router.get('/profile',passport.checkAuthentication,usersController.profile)
+router.get('/profile/:id',passport.checkAuthentication,usersController.profile)
 router.get('/sign_out',usersController.destroySession)
+router.post('/update/:id',passport.checkAuthentication,usersController.update)
 router.post('/create',usersController.create)
 router.post('/session',passport.authenticate(
     'local',
